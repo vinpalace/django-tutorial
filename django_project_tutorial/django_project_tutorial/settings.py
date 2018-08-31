@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_project_tutorial.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'django_project_tutorial.urls'
@@ -122,3 +123,15 @@ STATIC_URL = '/static/'
 
 #this is what changes the default URL Address to this userdefined one
 LOGIN_REDIRECT_URL = '/account/'
+
+LOGIN_URL = '/account/login'
+
+LOGIN_EXEMPT_URLS = (
+    r'^account/login/$',
+    r'^account/logout/$',
+    r'^account/register/$',
+
+)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

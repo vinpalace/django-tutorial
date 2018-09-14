@@ -16,11 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from django_project_tutorial import views
 
 urlpatterns = [
     path('', views.login_redirect, name='login_redirect'),
     path('admin/', admin.site.urls),
-    path('account/', include('accounts.urls', namespace='accounts'))
+    path('account/', include('accounts.urls', namespace='accounts')),
+    path('home/', include(('home.urls', 'home'), namespace='home'))
 
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # this came from how-to static in documentation

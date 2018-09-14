@@ -11,12 +11,6 @@ from django.contrib.auth.decorators import login_required # to make sure the vie
 # Create your views here.
 # function based views
 
-def home(request):
-    numbers = [1, 2, 3, 4, 5]
-    name = "Moturu Vineeth"
-    context = {'name' : name, 'numbers' : numbers}
-    return render(request, 'accounts\\home.html', context)
-
 
 def register(request):
     if request.method == 'POST':
@@ -59,7 +53,8 @@ def change_password(request):
             update_session_auth_hash(request, form.user)
             return redirect('/account/profile')
         else:
-            return redirect('/account/change_password') # VIDEO 20 - 22 MAX GOODRIDGE
+            print('here')
+            return redirect('/account/change-password') # VIDEO 20 - 22 MAX GOODRIDGE
 
     else:
         form = PasswordChangeForm(user=request.user)

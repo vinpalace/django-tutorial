@@ -20,7 +20,7 @@ href="{% static 'accounts/css/bootstrap.min.css' %}"/>
         {% if user.is_authenticated %}
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/account">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="/account/logout">Logout</a>
@@ -34,10 +34,13 @@ href="{% static 'accounts/css/bootstrap.min.css' %}"/>
           <li class="nav-item active">
             <a class="nav-link" href="/account/change-password">Change Password</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/account/reset-password">Reset Password</a>
-          </li>
 
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item active">
+              <a class="nav-link" href="/account/logout">Logout</a>
+            </li>
         </ul>
 
 
@@ -53,9 +56,18 @@ href="{% static 'accounts/css/bootstrap.min.css' %}"/>
 
         </ul>
 
+
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+              <a class="nav-link" href="/account/reset-password">Reset Password</a>
+            </li>
+        </ul>
+
+
         <ul class="navbar-nav navbar-right">
             <li><a href="/account/register" class="nav-link"> Register</a></li>
         </ul>
+
 
         {% endif %}
 

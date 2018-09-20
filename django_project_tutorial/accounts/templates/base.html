@@ -1,88 +1,92 @@
 <html>
+    <head>
 {% load static %}
 <link rel="stylesheet"
 type="text/css"
 href="{% static 'accounts/css/bootstrap.min.css' %}"/>
-    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         {% block head %}
         <title>Base</title>
         {% endblock %}
     </head>
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Social Network</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExample02">
-
-        {% if user.is_authenticated %}
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/account/logout">Logout</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'accounts:view_profile' %}">Profile</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/account/profile/edit">Edit Profile</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/account/change-password">Change Password</a>
-          </li>
-
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item active">
-              <a class="nav-link" href="/account/logout">Logout</a>
-            </li>
-        </ul>
-
-
-        {% else %}
-
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/account">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/account/login">Login</a>
-          </li>
-
-        </ul>
-
-
-        <ul class="navbar-nav navbar-right">
-            <li class="nav-item active">
-              <a class="nav-link" href="/account/reset-password">Reset Password</a>
-            </li>
-        </ul>
-
-
-        <ul class="navbar-nav navbar-right">
-            <li><a href="/account/register" class="nav-link"> Register</a></li>
-        </ul>
-
-
-        {% endif %}
-
-      </div>
-    </nav>
-
     <body>
         <br>
 
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Social Network</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    <div class="container">
+          <div class="collapse navbar-collapse" id="navbarsExample02">
 
-</div>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/account/logout">Logout</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'accounts:view_profile' %}">Profile</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/account/profile/edit">Edit Profile</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/account/change-password">Change Password</a>
+              </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/account/logout">Logout</a>
+                </li>
+            </ul>
+
+
+            {% else %}
+
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/account">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/account/login">Login</a>
+              </li>
+
+            </ul>
+
+
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/account/reset-password">Reset Password</a>
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav navbar-right">
+                <li><a href="/account/register" class="nav-link"> Register</a></li>
+            </ul>
+
+
+            {% endif %}
+
+          </div>
+        </nav>
+
+
+
         {% block body %}
             <h1>Base</h1>
         {% endblock %}
     </body>
+    <script type="text/javascript" src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
+
+
 </html>

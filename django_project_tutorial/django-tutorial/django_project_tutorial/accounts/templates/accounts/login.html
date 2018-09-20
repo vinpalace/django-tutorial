@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container">
+
+    {% comment %}
+        This replaces the block in base.html
+        just like the func overriding
+    {% endcomment %}
+
+    <h1>Welcome</h1>
+    <p>
+        You can login here
+    </p>
+    <h2>Login</h2>
+    <form class="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="button">Login</button>
+    </form>
+
+</div>
+
+{% endblock %}
